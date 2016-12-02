@@ -1,20 +1,11 @@
 require_relative 'base'
+require_relative '../sections/categories'
 
 module Web
   module Pages
-    class Signup < Base
-      set_url "/signup"
-      element :email_field, :id, "email"
-      element :password_field, :id, "password"
-      element :postcode_field, :id, "zipcode"
-      element :signup_button, :id, "email-signup-form-submit"
-
-      def login(email, password, postcode)
-        email_field.set email
-        password_field.set password
-        postcode_field.set postcode
-        signup_button.click
-      end
+    class Home < Base
+      set_url "/london"
+      section :categories,  Web::Sections::Categories, ".navigation-categories-container"
     end
   end
 end

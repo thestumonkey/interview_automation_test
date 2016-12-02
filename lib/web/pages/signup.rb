@@ -10,6 +10,8 @@ module Web
       element :signup_button, :id, "email-signup-form-submit"
 
       def login(email, password, postcode)
+        # add timestamp to avoid account already existing. would expect to clear DB IRL
+        email += Random.rand(100000).to_s
         email_field.set email
         password_field.set password
         postcode_field.set postcode

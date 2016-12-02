@@ -8,7 +8,6 @@ Feature: Sign up to Farmdrop
     Given I am on the signup page
     When  I enter <email>, <password> and <postcode>
     Then I see <result>
-    And my account is <created_or_not>
 
     Examples:
       | email                | password | postcode     | result               | created_or_not |
