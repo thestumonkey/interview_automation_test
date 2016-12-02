@@ -10,10 +10,9 @@ Given(/^I am on the signup page$/) do
   @signup_page.load
 end
 
-Then(/^I see Homepage$/) do
+Then(/^I see a Homepage$/) do
   @home_page = Web::Pages::Home.new
   @home_page.wait_until_categories_visible(5)
   expect(@home_page.header.account.text).to eq("Account")
 end
 
-Then(/^I see Homepage$/)

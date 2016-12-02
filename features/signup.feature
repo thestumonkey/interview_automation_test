@@ -7,17 +7,17 @@ Feature: Sign up to Farmdrop
   Scenario Outline: Signup
     Given I am on the signup page
     When  I enter <email>, <password> and <postcode>
-    Then I see <result>
+    Then I see a <result>
 
     Examples:
-      | email                | password | postcode     | result               | created_or_not |
-      | stu@theawesome.co.uk | 123456   | N17 6JN      | Homepage             | created        |
-      | stu@theawesome.co.uk | 123456   | bad postcode | postcode_error       | not created    |
-      | stu@theawesome.co.uk | 12345    | N17 6JN      | password_error       | not created    |
-      | stutheawesome.co.uk  | 123456   | N17 6JN      | email_error          | not created    |
-      | stu@theawesome.co.uk | 123456   |              | blank_postcode_error | not created    |
-      | stu@theawesome.co.uk |          | N17 6JN      | blank_password_error | not created    |
-      |                      |          | 123456       | blank_email_error    | not created    |
+      | email                | password | postcode     | result                        |
+      | stu@theawesome.co.uk | 123456   | N17 6JN      | Homepage                      |
+      | stu@theawesome.co.uk | 123456   | bad postcode | postcode error                |
+      | stu@theawesome.co.uk | 12345    | N17 6JN      | password error                |
+      | stutheawesome.co.uk  | 123456   | N17 6JN      | email error                   |
+      | stu@theawesome.co.uk | 123456   |              | Zipcode can't be blank error  |
+      | stu@theawesome.co.uk |          | N17 6JN      | Password can't be blank error |
+      |                      |          | 123456       | Email can't be blank error    |
 
   Scenario: Account already exists
     Given I am on the signup page

@@ -1,6 +1,7 @@
 require 'capybara/rspec'
 require 'rspec'
 require 'selenium-webdriver'
+require 'capybara/poltergeist'
 
 Capybara.configure do |config|
   config.run_server = false
@@ -9,5 +10,7 @@ Capybara.configure do |config|
 end
 
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  browser = (ENV['browser'] || 'chrome').to_sym
+  puts "Starting #{browser}"
+  Capybara::Selenium::Driver.new(app, :browser => browser)
 end
